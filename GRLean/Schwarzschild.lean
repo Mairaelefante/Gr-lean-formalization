@@ -9,14 +9,13 @@ of the Schwarzschild metric from the Einstein field equations.
 
 namespace GRLean
 
-def schwarzschildRadius (G M c : ℝ) : ℝ := 2 * G * M / c ^ 2
+noncomputable def schwarzschildRadius (G M c : ℝ) : ℝ := 2 * G * M / c ^ 2
 
 /-- The horizon relation `c² rₛ = 2 G M` for nonzero light speed. -/
 theorem horizon_relation (G M c : ℝ) (hc : c ≠ 0) :
     c ^ 2 * schwarzschildRadius G M c = 2 * G * M := by
   unfold schwarzschildRadius
   field_simp
-  <;> ring
 
 /-- Uniqueness of a radius satisfying the algebraic horizon relation. -/
 theorem horizon_unique (G M c r : ℝ) (hc : c ≠ 0)
