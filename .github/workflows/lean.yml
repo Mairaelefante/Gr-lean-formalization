@@ -2,21 +2,21 @@ name: Lean proof check
 on:
   push:
   pull_request:
+
 jobs:
   lean:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install Lean toolchain
-        uses: leanprover/lean-action@v1
-        with:
-          auto-config: false
-          build: false
-          test: false
-          lint: false
-      - name: Resolve dependencies
+      - name: Install elan
+        shell: bash
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+          sh elan-init.sh -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve Lake dependencies
         run: lake update
       - name: Download Mathlib cache
         run: lake exe cache get
-      - name: Check Lean proofs
+      - name: Compile Lean proofs
         run: lake build
