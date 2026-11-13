@@ -1,0 +1,11 @@
+name = "gr_lean_formalization"
+version = "0.1.0"
+defaultTargets = ["GRLean"]
+
+[[lean_lib]]
+name = "GRLean"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.20.0"

@@ -1,0 +1,4 @@
+name,symbol,value,unit,source,notes
+speed_of_light,c,299792458,m/s,SI Brochure,exact defined value
+gravitational_constant,G,6.67430e-11,m^3 kg^-1 s^-2,CODATA 2022,standard uncertainty 0.00015e-11
+solar_mass_reference,M_sun,1.98847e30,kg,approximate astronomical reference,rounded illustrative mass not an exact SI definition
